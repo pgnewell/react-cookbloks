@@ -1,0 +1,13 @@
+#login-form #register-form {
+  width: 100%;
+}
+.container {
+  width: 100%;
+}
+
+.sidebar {
+  margin: 0px auto;
+  align-self: flex-end;
+  float: right;
+  width: 30%;
+}
