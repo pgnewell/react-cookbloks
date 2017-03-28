@@ -13,9 +13,11 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to CookBloks</h2>
         </div>
-        <RecipeBox/>
-        <Sidebar/>
-     </div>
+        <div className="App-main">
+          <RecipeBox className="recipe-box"/>
+          <Sidebar className="sidebar"/>
+        </div>
+      </div>
     );
   }
 }

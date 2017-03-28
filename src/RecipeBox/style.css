@@ -1,10 +1,8 @@
 .recipe-list {
     margin: 0px auto;
     cursor: pointer;
-    width: 50%;
     min-width: 100px;
     background-color: silver;
-    width: 100%;
 }
 .table {
   margin-bottom: 0px;
@@ -15,27 +13,19 @@
 .desc { text-align: left; font-size: 60%; width: 100%; }
 
 .list-box {
-  clear: both;
   margin: 2px;
   cursor: pointer;
-  background-color: linen;
   border-radius: 4px;
   width: 70%;
 }
 
-.left-column {
-  margin: 0px auto;
-  align-self: flex-start;
-  float: left;
-}
-
-.middle-column {
+.item-box {
   margin: 0px auto;
   align-self: center;
 }
 
 .footer {
-  display: inline-block;
+  clear: both;
   width: 100%;
 }
 /*

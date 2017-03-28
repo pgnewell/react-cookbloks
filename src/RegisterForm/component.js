@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import './style.css';
 
 class RegisterForm extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="side-container">
         <div className="panel panel-primary">
           <div className="panel-body">
             <form id="register-form" method="POST" action="#" role="form">

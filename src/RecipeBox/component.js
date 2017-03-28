@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 import { data, menus } from '../InMemoryData.js';
-import { Table, Pagination } from 'react-bootstrap';
+import { Pagination } from 'react-bootstrap';
 
 const RecipeBox = React.createClass({
   getInitialState() {
@@ -13,12 +13,12 @@ const RecipeBox = React.createClass({
 
   render() {
     return (
-      <div className="list-box">
-        <div className="left-column">
+      <div className={this.props.className}>
+        <div className="master-detail">
           <RecipeList/>
-        </div>
-        <div className="middle-column">
+          <div className="item-box">
 
+          </div>
         </div>
         <div className="footer">
           <Footman/>
@@ -43,30 +43,42 @@ export default RecipeBox;
 
 class RecipeRow extends Component {
   render() {
+    const thisStyle={ float: 'left' };
+    const clearStyle={ clear: 'both' };
     return (
-      <Table>
-        <tbody>
-
-          <tr>
-            <td rowSpan="3" className="picture">
-              <img src={this.props.recipe.picture_url} alt={this.props.recipe.name} />
-            </td>
-            <td className="name">
-              {this.props.recipe.name}
-            </td>
-          </tr>
-          <tr>
-            <td className="auth">
-              {this.props.recipe.author}
-            </td>
-          </tr>
-          <tr>
-            <td className="desc">
-              {this.props.recipe.desc}
-            </td>
-          </tr>
-        </tbody>
-      </Table>
+      <div>
+        <div style={thisStyle}>
+          <img src={this.props.recipe.picture_url} alt={this.props.recipe.name} />
+        </div>
+        <div style={thisStyle}>
+          <div>{this.props.recipe.name}</div>
+          <div>{this.props.recipe.author}</div>
+          <div>{this.props.recipe.desc}</div>
+        </div>
+        <div style={clearStyle}></div>
+      </div>
+      // <Table>
+      //   <tbody>
+      //
+      //     <tr>
+      //       <td rowSpan="3" className="picture">
+      //       </td>
+      //       <td className="name">
+      //         {this.props.recipe.name}
+      //       </td>
+      //     </tr>
+      //     <tr>
+      //       <td className="auth">
+      //         {this.props.recipe.author}
+      //       </td>
+      //     </tr>
+      //     <tr>
+      //       <td className="desc">
+      //         {this.props.recipe.desc}
+      //       </td>
+      //     </tr>
+      //   </tbody>
+      // </Table>
       //
       // <Grid>
       //   <Row>
