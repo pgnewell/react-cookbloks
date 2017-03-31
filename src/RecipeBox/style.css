@@ -3,6 +3,7 @@
     cursor: pointer;
     min-width: 100px;
     background-color: silver;
+    float: left;
 }
 .table {
   margin-bottom: 0px;
@@ -12,16 +13,15 @@
 .auth { text-align: left; font-size: 60%; width: 100%; }
 .desc { text-align: left; font-size: 60%; width: 100%; }
 
-.list-box {
+.recipe-row {
   margin: 2px;
   cursor: pointer;
   border-radius: 4px;
   width: 70%;
 }
 
-.item-box {
+# item-box {
   margin: 0px auto;
-  align-self: center;
 }
 
 .footer {

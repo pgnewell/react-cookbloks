@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import './style.css';
 import { data, menus } from '../InMemoryData.js';
 import { Pagination } from 'react-bootstrap';
+import RecipeShow from '../RecipeShow/component';
 
-const RecipeBox = React.createClass({
-  getInitialState() {
-    return {
+class RecipeBox extends Component {
+  constructor() {
+    super();
+    this.state = {
       menus: menus,
-      selected: 1
+      selected: 0
     };
-  },
+  }
 
   render() {
     return (
       <div className={this.props.className}>
-        <div className="master-detail">
+        <div id="master-detail">
           <RecipeList/>
-          <div className="item-box">
+          <div id="item-box">
 
           </div>
         </div>
@@ -26,7 +29,11 @@ const RecipeBox = React.createClass({
       </div>
     )
   }
-});
+
+  onSelect() {
+    return({});
+  }
+}
 
 class RecipeList extends Component {
   render() {
@@ -42,93 +49,68 @@ class RecipeList extends Component {
 export default RecipeBox;
 
 class RecipeRow extends Component {
+  handleClick(recipe) {
+    ReactDOM.render(
+      <RecipeShow recipe={recipe}/>,
+      document.getElementById('item-box')
+    );
+  }
   render() {
     const thisStyle={ float: 'left' };
     const clearStyle={ clear: 'both' };
     return (
-      <div>
-        <div style={thisStyle}>
+      // <div>
+      //   <div style={thisStyle}>
+      //     <img src={this.props.recipe.picture_url} alt={this.props.recipe.name} />
+      //   </div>
+      //   <div style={thisStyle}>
+      //     <div>{this.props.recipe.name}</div>
+      //     <div>{this.props.recipe.author}</div>
+      //     <div>{this.props.recipe.desc}</div>
+      //   </div>
+      //   <div style={clearStyle}></div>
+      // </div>
+      <div className="recipe-row" onClick={() => this.handleClick(this.props.recipe)}>
+
+        <div className="picture" style={thisStyle}>
           <img src={this.props.recipe.picture_url} alt={this.props.recipe.name} />
         </div>
         <div style={thisStyle}>
-          <div>{this.props.recipe.name}</div>
-          <div>{this.props.recipe.author}</div>
-          <div>{this.props.recipe.desc}</div>
+          <div className="name">
+            {this.props.recipe.name}
+          </div>
+          <div className="auth">
+            {this.props.recipe.author}
+          </div>
+          <div className="desc">
+            {this.props.recipe.desc}
+          </div>
         </div>
-        <div style={clearStyle}></div>
+        <div className="clear" style={clearStyle}></div>
       </div>
-      // <Table>
-      //   <tbody>
-      //
-      //     <tr>
-      //       <td rowSpan="3" className="picture">
-      //       </td>
-      //       <td className="name">
-      //         {this.props.recipe.name}
-      //       </td>
-      //     </tr>
-      //     <tr>
-      //       <td className="auth">
-      //         {this.props.recipe.author}
-      //       </td>
-      //     </tr>
-      //     <tr>
-      //       <td className="desc">
-      //         {this.props.recipe.desc}
-      //       </td>
-      //     </tr>
-      //   </tbody>
-      // </Table>
-      //
-      // <Grid>
-      //   <Row>
-      //     <Col lg={1} sm={1} md={1} >
-      //     </Col>
-      //   </Row>
-      //   <Row>
-      //
-      //   </Row>
-      //   <Row>
-      //
-      //   </Row>
-      // </Grid>
-      // <div className="list-box">
-      //   <div className="picture">
-      //     <img src={this.props.recipe.picture_url} alt={this.props.recipe.name} />
-      //   </div>
-      //   <div className="name">
-      //     {this.props.recipe.name}
-      //   </div>
-      //   <div className="auth">
-      //     {this.props.recipe.author}
-      //   </div>
-      //   <div className="desc">
-      //     {this.props.recipe.desc}
-      //   </div>
-      //   <div className="clear"></div>
-      // </div>
     );
   }
 }
 
-const Footman = React.createClass({
-  getInitialState() {
-    return {
+class Footman extends Component {
+  constructor() {
+    super();
+    this.state = {
       activePage: 1
     };
-  },
+  }
 
   setLength( length ) {
     this.setState({
       tableLength: length
     })
-  },
+  }
 
   handleSelect(eventKey) {
     this.setState({
       activePage: eventKey
     });
-  },
+  }
 
   render() {
     return (
@@ -145,4 +127,4 @@ const Footman = React.createClass({
         onSelect={this.handleSelect} />
     );
   }
-});
+};

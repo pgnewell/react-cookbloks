@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import './RecipeShow.css';
+import './style.css';
 
 class RecipeShow extends Component {
   render() {
-    var list = data.map((r) =>
-      <RecipeDesc key={r.id} recipe={r}/>
-    );
+    // var list = data.map((r) =>
+    //   <RecipeDesc key={r.id} recipe={r}/>
+    // );
     return (
       <div>
-        <RecipeDesc recipe={this.props.recipe} className="recipe-list" >
-          {list}
-        </RecipeDesc>
-        <Steps steps={this.props.recipe.steps}></Steps>
+        This recipe is {this.props.recipe.name}
+        <RecipeDesc recipe={this.props.recipe} />
+        size is {this.props.recipe.steps.length}
+        <Steps steps={this.props.recipe.steps} />
       </div>
     );
   }
@@ -25,7 +25,7 @@ class RecipeDesc extends Component {
       <div className="list-box">
         <div className="picture">
           <label>
-            {this.props.step.name}
+            {this.props.recipe.name}
           </label>
           <div>
             <img src={this.props.recipe.picture_url}
@@ -44,7 +44,7 @@ class RecipeDesc extends Component {
 class Steps extends Component {
   render() {
     var list = this.props.steps.map( (s) =>
-      <Step step={s}></Step>
+      <Step key={s.step} step={s}/>
     );
 
     return (
@@ -56,20 +56,22 @@ class Steps extends Component {
 
 class Step extends Component {
   render() {
-    <div>
-      <div>{this.props.step.name}</div>
-      <Ingredients ingrs={this.props.step.ingredients}></Ingredients>
+    return (
       <div>
-        {this.props.step.instructions}
+        <div>{this.props.step.name}</div>
+        <Ingredients ingrs={this.props.step.step_ingredients} />
+        <div>
+          {this.props.step.instructions}
+        </div>
       </div>
-    </div>
+    )
   }
 }
 
 class Ingredients extends Component {
   render() {
-    var list = this.props.ingrs( (i) =>
-      <Ingredient ingr={i}></Ingredient>
+    var list = this.props.ingrs.map( (i) =>
+      <Ingredient key={i.seq} ingr={i} />
     );
 
     return (
@@ -81,12 +83,14 @@ class Ingredients extends Component {
 
 class Ingredient extends Component {
   render() {
-    <div>
+    return (
       <div>
-        {this.props.ingr.amount}
-        {this.props.ingr.measurement}
-        {this.props.ingr.ingredient}
-      </div>z
-    </div>
+        <div>
+          {this.props.ingr.amount + ' ' +
+            this.props.ingr.measurement + ' ' +
+            this.props.ingr.ingredient}
+        </div>
+      </div>
+    )
   }
 }
