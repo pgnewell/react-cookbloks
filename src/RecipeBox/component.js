@@ -30,9 +30,6 @@ class RecipeBox extends Component {
     )
   }
 
-  onSelect() {
-    return({});
-  }
 }
 
 class RecipeList extends Component {

@@ -8,9 +8,7 @@ class RecipeShow extends Component {
     // );
     return (
       <div>
-        This recipe is {this.props.recipe.name}
         <RecipeDesc recipe={this.props.recipe} />
-        size is {this.props.recipe.steps.length}
         <Steps steps={this.props.recipe.steps} />
       </div>
     );

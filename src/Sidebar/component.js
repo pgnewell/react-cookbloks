@@ -5,6 +5,7 @@ import InfiniteCalendar from 'react-infinite-calendar';
 import 'react-infinite-calendar/styles.css';
 import LoginForm from '../LoginForm/component.js';
 import RegisterForm from '../RegisterForm/component.js';
+import Menus from '../Menus/component.js';
 
 class Sidebar extends Component {
   render() {
@@ -23,6 +24,7 @@ class Sidebar extends Component {
             <RegisterForm/>
     			</Panel>
     			<Panel header="Create Menus" eventKey="2">
+            <Menus/>
     			</Panel>
     			<Panel header="Calendar" eventKey="3">
             <InfiniteCalendar
