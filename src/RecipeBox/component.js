@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import './style.css';
+
 import { data, menus } from '../InMemoryData.js';
 import { Pagination } from 'react-bootstrap';
-import RecipeShow from '../RecipeShow/component';
+import RecipeRow from '../RecipeRow/component';
 
 class RecipeBox extends Component {
   constructor() {
@@ -44,50 +44,6 @@ class RecipeList extends Component {
 }
 
 export default RecipeBox;
-
-class RecipeRow extends Component {
-  handleClick(recipe) {
-    ReactDOM.render(
-      <RecipeShow recipe={recipe}/>,
-      document.getElementById('item-box')
-    );
-  }
-  render() {
-    const thisStyle={ float: 'left' };
-    const clearStyle={ clear: 'both' };
-    return (
-      // <div>
-      //   <div style={thisStyle}>
-      //     <img src={this.props.recipe.picture_url} alt={this.props.recipe.name} />
-      //   </div>
-      //   <div style={thisStyle}>
-      //     <div>{this.props.recipe.name}</div>
-      //     <div>{this.props.recipe.author}</div>
-      //     <div>{this.props.recipe.desc}</div>
-      //   </div>
-      //   <div style={clearStyle}></div>
-      // </div>
-      <div className="recipe-row" onClick={() => this.handleClick(this.props.recipe)}>
-
-        <div className="picture" style={thisStyle}>
-          <img src={this.props.recipe.picture_url} alt={this.props.recipe.name} />
-        </div>
-        <div style={thisStyle}>
-          <div className="name">
-            {this.props.recipe.name}
-          </div>
-          <div className="auth">
-            {this.props.recipe.author}
-          </div>
-          <div className="desc">
-            {this.props.recipe.desc}
-          </div>
-        </div>
-        <div className="clear" style={clearStyle}></div>
-      </div>
-    );
-  }
-}
 
 class Footman extends Component {
   constructor() {

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import logo from './kitchen-utensils.svg';
 import './App.css';
-import RecipeBox from './RecipeBox/component'
-import Sidebar from './Sidebar/component'
+import AppMain from './AppMain'
 
 class App extends Component {
 
@@ -13,10 +12,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to CookBloks</h2>
         </div>
-        <div className="App-main">
-          <RecipeBox className="recipe-box"/>
-          <Sidebar className="sidebar"/>
-        </div>
+        <AppMain />
       </div>
     );
   }
