@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 
-import { data, menus } from '../InMemoryData.js';
+import { recipes, menus } from '../InMemoryData/Data';
 import { Pagination } from 'react-bootstrap';
 import RecipeRow from '../RecipeRow/component';
 
@@ -34,7 +34,7 @@ class RecipeBox extends Component {
 
 class RecipeList extends Component {
   render() {
-    var list = data.map((r) =>
+    var list = recipes.map((r) =>
       <RecipeRow key={r.id} recipe={r}/>
     );
     return (

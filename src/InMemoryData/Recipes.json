@@ -1,4 +1,4 @@
-export const data = [
+[
     {
         "name": "my neat recipe",
         "steps": [
@@ -1893,30 +1893,4 @@ export const data = [
         "id": 13,
         "picture_url": "/images/0/2011-03-29%2014.34.11.png"
     }
-  ];
-
-  export const menus = [
-    {
-      "name": "Taco Tuesday",
-      recipes: [
-        {
-          "id": 123,
-          "name": "Coconut Lime Pork Tacos",
-          "amount": {
-            "measure": "persons",
-            "amount": 2
-          },
-          "role": "main"
-        },
-        {
-          "id": 154,
-          "name": "Guocomole",
-          "amount": {
-            "measure": "cups",
-            "amount": 1
-          },
-          "role": "side"
-        }
-      ]
-    }
-  ]
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Taco Tuesday",
+    "id": 1,
+    "recipes": [
+      {
+        "id": 123,
+        "name": "Coconut Lime Pork Tacos",
+        "amount": {
+          "measure": "persons",
+          "amount": 2
+        },
+        "role": "main"
+      },
+      {
+        "id": 154,
+        "name": "Guocomole",
+        "amount": {
+          "measure": "cups",
+          "amount": 1
+        },
+        "role": "side"
+      }
+    ]
+  }
+]
