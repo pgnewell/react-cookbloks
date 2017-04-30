@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 // import Dispatcher from 'flux';
-import MenuItem from "../MenuItem/component";
+import MenuForm from "../MenuForm/component";
 import './style.css';
 
 import { menus } from '../InMemoryData/Data';
+
+const showResults = values =>
+  new Promise(resolve => {
+    setTimeout(() => {  // simulate server latency
+      window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`)
+      resolve()
+    }, 500)
+  })
 
 class Menus extends Component {
   handleClick(menu) {
     console.log("here in handleClick land");
     ReactDOM.render(
-      <MenuItem menu={menu}/>,
+      <MenuForm menu={menu} handleSubmit={showResults}/>,
       document.getElementById('item-box')
     );
   }
   render() {
+    const { store } = this.context;
     var list = menus.map( (m) =>
-      <div className="menu-item"  key={m.id} onClick={() => this.handleClick(m)}
+      <div className="menu-item"  key={m.id}
+        onClick={() => store.dispatch({type: 'SET_MENU', menu: m})}
         style={{cursor: 'pointer'}}>
         {m.name}
       </div>
     );
     list.push(
-      <div className="new-menu-item" key={-1} onClick={() => this.handleClick(null)}
+      <div className="new-menu-item" key={-1}
+        onClick={() => store.dispatch({type: 'SET_MENU', menu: null})}
         style={{cursor: 'pointer'}}>
         (New Menu)
       </div>
@@ -31,6 +42,9 @@ class Menus extends Component {
       <div>{list}</div>
     )
   }
+}
+Menus.contextTypes = {
+  store: React.PropTypes.object,
 }
 
 export default Menus;

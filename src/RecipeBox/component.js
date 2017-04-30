@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
 import './style.css';
 
-import { recipes, menus } from '../InMemoryData/Data';
+import { recipes } from '../InMemoryData/Data';
 import { Pagination } from 'react-bootstrap';
 import RecipeRow from '../RecipeRow/component';
+import MenuForm from '../MenuForm/component';
+import RecipeShow from '../RecipeShow/component'
 
 class RecipeBox extends Component {
-  constructor() {
-    super();
-    this.state = {
-      menus: menus,
-      selected: 0
-    };
-  }
-
   render() {
+    var store = this.context.getState();
+    var itemBox = store.menu && <MenuForm menu={store.menu}/>;
+    itemBox = store.recipe && <RecipeShow recipe={store.recipe}/>;
+    itemBox = itemBox || <div>nothing to see here</div>;
+
     return (
       <div className={this.props.className}>
         <div id="master-detail">
           <RecipeList/>
           <div id="item-box">
-
+            {itemBox}
           </div>
         </div>
         <div className="footer">
@@ -29,7 +28,10 @@ class RecipeBox extends Component {
       </div>
     )
   }
-
+}
+RecipeBox.contextTypes = {
+  store: React.PropTypes.object,
+  funcs: React.PropTypes.object
 }
 
 class RecipeList extends Component {

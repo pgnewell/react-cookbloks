@@ -1,8 +1,16 @@
-import React, { Component, PropTypes } from 'react';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import { Textfield, Icon, Tooltip } from 'react-mdl';
 //import { canMoveRecipe, moveRecipe } from './';
 // import { ItemTypes } from '../Constants';
 // import { DropTarget } from 'react-dnd';
+ switch (expression) {
+   case expression:
 
+     break;
+   default:
+
+ }
 // const recipeTarget = {
 //   canDrop(props) {
 //     return true; //canMoveRecipe(props.x, props.y);
@@ -42,9 +50,9 @@ class MenuItem extends Component {
 
   render() {
     //const { connectDropTarget, isOver, canDrop } = this.props;
-    var list = this.props.menu.recipes.map((m) =>
+    var list = this.props.edit ? [] : this.props.menu.recipes.map((m) =>
       <li key={m.id}>
-        {  m.name}
+        {m.name}
       </li>
     );
 
@@ -56,10 +64,14 @@ class MenuItem extends Component {
     //   }}>
     return(
       <div>
-        <p>
+        <Textfield>
           {this.props.menu.name}
-        </p>
+        </Textfield>
         <ul>{list}</ul>
+        <Textfield label="Recipe Name" />
+        <Tooltip label="Add">
+          <Icon name="add"/>
+        </Tooltip>
         {/* {isOver && canDrop && this.renderOverlay('red')} */}
       </div>
     );

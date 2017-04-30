@@ -1,3 +1,5 @@
 export const ItemTypes = {
-  RECIPE: 'recipe'
+  RECIPE: 'recipe',
+  MENU: 'menu',
+  NONE: 'none'
 };
