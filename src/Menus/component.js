@@ -26,14 +26,18 @@ class Menus extends Component {
     const { store } = this.context;
     var list = menus.map( (m) =>
       <div className="menu-item"  key={m.id}
-        onClick={() => store.dispatch({type: 'SET_MENU', menu: m})}
+        onClick={
+          () => store.dispatch({type: 'SET_MENU', menu: m})
+        }
         style={{cursor: 'pointer'}}>
         {m.name}
       </div>
     );
     list.push(
       <div className="new-menu-item" key={-1}
-        onClick={() => store.dispatch({type: 'SET_MENU', menu: null})}
+        onClick={
+          () => store.dispatch({type: 'SET_MENU', menu: null})
+        }
         style={{cursor: 'pointer'}}>
         (New Menu)
       </div>

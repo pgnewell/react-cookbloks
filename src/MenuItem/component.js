@@ -4,13 +4,7 @@ import { Textfield, Icon, Tooltip } from 'react-mdl';
 //import { canMoveRecipe, moveRecipe } from './';
 // import { ItemTypes } from '../Constants';
 // import { DropTarget } from 'react-dnd';
- switch (expression) {
-   case expression:
 
-     break;
-   default:
-
- }
 // const recipeTarget = {
 //   canDrop(props) {
 //     return true; //canMoveRecipe(props.x, props.y);

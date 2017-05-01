@@ -22,6 +22,7 @@ function collect(connect, monitor) {
 
 class RecipeRow extends Component {
   handleClick(recipe) {
+    console.log('here in reciperow land')
     ReactDOM.render(
       <RecipeShow recipe={recipe}/>,
       document.getElementById('item-box')
