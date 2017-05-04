@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 
 import RecipeItem from '../RecipeItem/component'
 import MenuForm from '../MenuForm/component'
+import './style.css';
 
 export default class ItemBox extends Component {
   render() {
-    console.log('here we are in ItemBox land');
     const { store } = this.context;
     var { item } = store.getState();
-    return item.menu ? <MenuForm menu={item.menu}/> :
-      item.recipe ? <RecipeItem recipe={item.recipe}/> :
-    <div>
+    return item.menu ? <MenuForm id='item-box' menu={item.menu}/> :
+      item.recipe ? <RecipeItem id='item-box' recipe={item.recipe}/> :
+    <div id='item-box'>
       nothing to see here
     </div>
   }

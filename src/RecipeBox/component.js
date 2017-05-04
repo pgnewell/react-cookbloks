@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './style.css';
 
-import { recipes } from '../InMemoryData/Data';
 import { Pagination } from 'react-bootstrap';
-import RecipeRow from '../RecipeRow/component';
 import ItemBox from '../ItemBox/component'
+import RecipeMenuList from '../RecipeMenuList/component'
 
 class RecipeBox extends Component {
   render() {
@@ -16,7 +15,7 @@ class RecipeBox extends Component {
     return (
       <div className={this.props.className}>
         <div id="master-detail">
-          <RecipeList/>
+          <RecipeMenuList/>
           <ItemBox />
         </div>
         <div className="footer">
@@ -28,17 +27,6 @@ class RecipeBox extends Component {
 }
 RecipeBox.contextTypes = {
   store: React.PropTypes.object,
-}
-
-class RecipeList extends Component {
-  render() {
-    var list = recipes.map((r) =>
-      <RecipeRow key={r.id} recipe={r}/>
-    );
-    return (
-      <div className="recipe-list" >{list}</div>
-    );
-  }
 }
 
 export default RecipeBox;

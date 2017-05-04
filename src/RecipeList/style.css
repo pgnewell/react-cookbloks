@@ -1,10 +1,8 @@
 .recipe-list {
     margin: 0px auto;
     cursor: pointer;
-    width: 50%;
     min-width: 100px;
     background-color: silver;
-    width: 100%;
 }
 .table {
   margin-bottom: 0px;
@@ -21,18 +19,6 @@
   border-radius: 4px;
   width: 60%;
   float: left;
-}
-
-.left-column {
-  margin: 0px auto;
-  align-self: flex-start;
-  float: left;
-  width: 100%;
-}
-
-.middle-column {
-  margin: 0px auto;
-  align-self: center;
 }
 
 .footer {

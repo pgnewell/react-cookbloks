@@ -1,0 +1,8 @@
+#item-box {
+  width: 67%;
+  margin: 0px auto;
+  background-color: lightcyan;
+  overflow: scroll;
+  max-height: 350px;
+  float: right;
+}

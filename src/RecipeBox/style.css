@@ -1,7 +1,6 @@
 .recipe-list {
     margin: 0px auto;
     cursor: pointer;
-    min-width: 100px;
     background-color: silver;
     float: left;
     overflow: scroll;
@@ -19,14 +18,7 @@
   margin: 2px;
   cursor: pointer;
   border-radius: 4px;
-  width: 70%;
-}
-
-#item-box {
-  margin: 0px auto;
-  background-color: lightcyan;
-  overflow: scroll;
-  max-height: 350px;
+  width: 100%;
 }
 
 .footer {
