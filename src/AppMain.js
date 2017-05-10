@@ -44,7 +44,7 @@ export default class AppMain extends Component {
     return (
       <Provider store={store}
         funcs={funcs}>
-        <div className="App-main">
+        <div className="app-main">
           <RecipeBox className="recipe-box"/>
           <Sidebar className="sidebar"/>
         </div>

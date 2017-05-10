@@ -1,3 +1,9 @@
+// not sure whether this should be here
+// after adding bootstrap tabs the body of the tabbed documents showed up
+// to the right of the tab block ... whaaaaah??? It was caused by a clearfix
+// that put flow back in play. Anyway this fixes that but
+// I would like to know how it was supposed to work in the first place. I
+// probably need to enclose the divs properly. 
 #menus-recipes:after {
     clear: right;
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RecipeList from '../RecipeList/component';
 import Menus from '../Menus/component';
 import { Tab, Row, Col, Nav, NavItem } from 'react-bootstrap';
+import './style.css'
 
 class RecipeMenuList extends Component {
   render() {
